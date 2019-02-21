@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+
+    "name": "Injection",
+    "description": "This extension will inject javascript",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "TEST"
+    },
+    "content_scripts":[
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "permissions": [
+    "activeTab"
+    ]
+}

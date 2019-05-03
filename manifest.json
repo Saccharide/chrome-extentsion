@@ -2,13 +2,14 @@
     "manifest_version": 2,
 
     "name": "Injection",
+    "author": "Saccharide",
     "description": "This extension will inject javascript",
     "version": "1.0",
 
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html",
-        "default_title": "TEST"
+        "default_title": "Injection Title"
     },
     "content_scripts":[
         {
@@ -17,6 +18,11 @@
         }
     ],
     "permissions": [
-    "activeTab"
-    ]
+    "activeTab",
+    "tabs"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js 'sha256-gDNtwDpci8fjK6DJth/7rV3Ugm7Qsmt1albFKLyKE+I='; object-src 'self'"
 }

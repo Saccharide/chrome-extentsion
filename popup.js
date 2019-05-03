@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Selecting a button and add an event listener (click listener)
         document.querySelector('button').addEventListener('click',
-                onclick, false)
+                onclick, false);
 
         function onclick() {
             alert("Inside popup.js");
@@ -14,9 +14,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     function (tabs) {
 
+                    // Version 0.1
                     // Sending a message to the first tab after the parent
                     // function returns. Based on id, and a string.
-                    chrome.tabs.sendMessage(tabs[0].id, 'hi')
+                    // chrome.tabs.sendMessage(tabs[0].id, 'hi')
+
+                    // Next version 1.1
+                    chrome.tabs.sendMessage(tabs[0].id, 'hi', setCount);
                 })
         }
-    }, false)
+
+        function setCount (response) {
+
+            const div = document.createElement('div');
+            div.textContent = `${response.count} markdown`;
+            document.body.appendChild(div);
+        }
+    }, false);
